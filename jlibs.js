@@ -55,7 +55,7 @@ jfpts.libs = jfpts.libs || {};
     this.resetArraySelect = function (arraySelecttion, valueReset) {
         if ($.isArray(arraySelecttion) && arraySelecttion.length > 0) {
             $.each(arraySelecttion, function (i, v) {
-                $(v).find('option[value="' + valueReset + '"]').prop('selected', true)
+                $(v).find('option[value="' + valueReset + '"]').prop('selected', true);
             });
         }
     };
@@ -72,7 +72,7 @@ jfpts.libs = jfpts.libs || {};
      */
     this.removeElementArray = function (value, array) {
         if ($.isArray(array) && array.length > 0) {
-            return $.grep(array, function (n, i) {
+            return $.grep(array, function (n) {
                 return n !== value;
             });
         }
@@ -88,7 +88,7 @@ jfpts.libs = jfpts.libs || {};
      */
     this.removeObjectInArray = function (array, propertyNameObject, valueRemove) {
         if (array.length > 0) {
-            return $.grep(array, function (n, i) {
+            return $.grep(array, function (n) {
                 return n[propertyNameObject] !== valueRemove;
             });
         }
@@ -216,16 +216,16 @@ jfpts.libs = jfpts.libs || {};
      */
     this.convertToAscii = function (str) {
         str = str.toLowerCase();
-        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
-        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
-        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
-        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
-        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
-        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
-        str = str.replace(/đ/g, "d");
-        str = str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g, "-");
-        str = str.replace(/-+-/g, "-"); //thay thế 2- thành 1-
-        str = str.replace(/^\-+|\-+$/g, "");//cắt bỏ ký tự - ở đầu và cuối chuỗi
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+        str = str.replace(/đ/g, 'd');
+        str = str.replace(/!|@|\$|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\'| |\"|\&|\#|\[|\]|~/g, '-');
+        str = str.replace(/-+-/g, '-'); //thay thế 2- thành 1-
+        str = str.replace(/^\-+|\-+$/g, '');//cắt bỏ ký tự - ở đầu và cuối chuỗi
         return str;
     };
 
@@ -238,13 +238,13 @@ jfpts.libs = jfpts.libs || {};
      */
     this.removeVietnamese = function (str) {
         str = str.toLowerCase();
-        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
-        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
-        str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
-        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
-        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
-        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
-        str = str.replace(/đ/g, "d");
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, 'a');
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, 'e');
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g, 'i');
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, 'o');
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, 'u');
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, 'y');
+        str = str.replace(/đ/g, 'd');
         return str;
     };
 
@@ -277,8 +277,8 @@ jfpts.libs = jfpts.libs || {};
      * @return {string || null}
      */
     this.getURLParameter = function (name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
-    }
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ''])[1].replace(/\+/g, '%20')) || null;
+    };
 
     /**
      * @author Không rõ.
@@ -296,7 +296,7 @@ jfpts.libs = jfpts.libs || {};
 
         str = typeof str != 'string' ? str.toString() : parseFloat(str).toString();
 
-        return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+        return str.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
     };
 
     /**
@@ -306,7 +306,7 @@ jfpts.libs = jfpts.libs || {};
     * th1 : jfpts.libs.generateStringRandom()
     */
     this.generateStringRandom = function () {
-        var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+        var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
             currentDate = new Date(),
             ranNums = [],
             i = chars.length,
@@ -320,7 +320,7 @@ jfpts.libs = jfpts.libs || {};
         var randomString = ranNums.join('');
         randomString = currentDate.getMilliseconds() + currentDate.getMonth() + currentDate.getSeconds() + currentDate.getMinutes() + randomString + Math.floor(Math.random() * (1000000 - 1 + 1)) + 1;
         return randomString;
-    }
+    };
 
     /**
     * @author nghiatc.
@@ -342,7 +342,7 @@ jfpts.libs = jfpts.libs || {};
             }
         }
         return secmentReturn;
-    }
+    };
 
     /**
      * @author nghiatc
@@ -358,7 +358,7 @@ jfpts.libs = jfpts.libs || {};
         } else {
             return false;
         }
-    }
+    };
 
     /**
     * @author nghiatc
@@ -374,7 +374,7 @@ jfpts.libs = jfpts.libs || {};
         } else {
             return false;
         }
-    }
+    };
     /**
      * @author nghiatc
      * @description Check if string is html tag
@@ -389,7 +389,7 @@ jfpts.libs = jfpts.libs || {};
         } else {
             return false;
         }
-    }
+    };
 
     /**
     * @author nghiatc
@@ -401,7 +401,7 @@ jfpts.libs = jfpts.libs || {};
         var tempHtml = value.replace(/\</igm, '&lt;');
         tempHtml = tempHtml.replace(/\/>/igm, '&gt;');
         return tempHtml;
-    }
+    };
 
     /**
    * @author nghiatc
@@ -411,20 +411,20 @@ jfpts.libs = jfpts.libs || {};
    */
     this.decodeHtml = function (value) {
         if (jfpts.libs.isHtmlTag(value) === false) {
-            var tempHtml = $("<div></div>").html(value).text();
+            var tempHtml = $('<div></div>').html(value).text();
             return tempHtml;
         }
         return value;
-    }
+    };
 
     /**
      * @author nghiatc
      * @description Hàm đếm số lần suốt hiện của chuỗi con trong chuỗi gốc.
      */
     this.countOcurrentce = function(str, matchValue) {
-        var rexEx = new RegExp(matchValue, "igm");
+        var rexEx = new RegExp(matchValue, 'igm');
         return (str.match(rexEx) || []).length;
-    }
+    };
 
     /**
     * @author Nghiatc2.
@@ -442,7 +442,7 @@ jfpts.libs = jfpts.libs || {};
         } else {
             return false;
         }
-    }
+    };
 
     /**
     * @author Nghiatc2.
@@ -460,5 +460,5 @@ jfpts.libs = jfpts.libs || {};
         } else {
             return false;
         }
-    }
+    };
 }).apply(jfpts.libs);
